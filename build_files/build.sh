@@ -13,7 +13,50 @@ cp -avf "/ctx/system_files"/. /
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux
+dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+dnf5 install -y noctalia \
+                umbriel-nightly \
+                noctalia-greeter \
+                ghostty \
+                fish \
+                ripgrep \
+                zoxide \
+                fd-find \
+                mise \
+                starship \
+                fzf \
+                nautilus \
+                gh \
+                git \
+                zen-browser \
+                codium \
+                jq \
+                brightnessctl \
+                wl-clipboard \
+                grim \
+                slurp \
+                wireplumber \
+                swappy \
+                zip \
+                unzip \
+                p7zip \
+                fastfetch \
+                tldr \
+                gdb \
+                strace \
+                shellcheck \
+                mpv \
+                xdg-utils \
+                xdg-user-dirs \
+                gnome-keyring \
+                gvfs \
+                gvfs-mtp \
+                wlr-randr \
+                polkit \
+                neovim \
+                lazygit \
+                yazi \
+                btop && dnf clean all
 
 # Use a COPR Example:
 #
@@ -25,3 +68,4 @@ dnf5 install -y tmux
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+systemctl enable greetd
